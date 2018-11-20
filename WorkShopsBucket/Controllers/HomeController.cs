@@ -15,7 +15,10 @@ namespace WorkShopsBucket.Controllers
 
         public ActionResult About()
         {
-            //ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Your application description page.";
+
+            // putting this comment just for testing.
+
 
             return View();
         }
