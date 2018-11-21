@@ -19,7 +19,7 @@
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
-    <IISExpressSSLPort />
+    <IISExpressSSLPort>44306</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -50,6 +50,12 @@
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.4.0.0\lib\net451\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -142,7 +148,10 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Attributes\WorkshopAuthorize.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\WorkShop1Controller.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -154,6 +163,127 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="UIPackages\angular\angular-csp.css" />
+    <Content Include="UIPackages\angular\angular.js" />
+    <Content Include="UIPackages\angular\angular.min.js" />
+    <Content Include="UIPackages\angular\index.js" />
+    <Content Include="UIPackages\jquery\AUTHORS.txt" />
+    <Content Include="UIPackages\jquery\dist\core.js" />
+    <Content Include="UIPackages\jquery\dist\jquery.js" />
+    <Content Include="UIPackages\jquery\dist\jquery.min.js" />
+    <Content Include="UIPackages\jquery\dist\jquery.slim.js" />
+    <Content Include="UIPackages\jquery\dist\jquery.slim.min.js" />
+    <Content Include="UIPackages\jquery\external\sizzle\dist\sizzle.js" />
+    <Content Include="UIPackages\jquery\external\sizzle\dist\sizzle.min.js" />
+    <Content Include="UIPackages\jquery\external\sizzle\LICENSE.txt" />
+    <Content Include="UIPackages\jquery\LICENSE.txt" />
+    <Content Include="UIPackages\jquery\src\ajax.js" />
+    <Content Include="UIPackages\jquery\src\ajax\jsonp.js" />
+    <Content Include="UIPackages\jquery\src\ajax\load.js" />
+    <Content Include="UIPackages\jquery\src\ajax\parseXML.js" />
+    <Content Include="UIPackages\jquery\src\ajax\script.js" />
+    <Content Include="UIPackages\jquery\src\ajax\var\location.js" />
+    <Content Include="UIPackages\jquery\src\ajax\var\nonce.js" />
+    <Content Include="UIPackages\jquery\src\ajax\var\rquery.js" />
+    <Content Include="UIPackages\jquery\src\ajax\xhr.js" />
+    <Content Include="UIPackages\jquery\src\attributes.js" />
+    <Content Include="UIPackages\jquery\src\attributes\attr.js" />
+    <Content Include="UIPackages\jquery\src\attributes\classes.js" />
+    <Content Include="UIPackages\jquery\src\attributes\prop.js" />
+    <Content Include="UIPackages\jquery\src\attributes\support.js" />
+    <Content Include="UIPackages\jquery\src\attributes\val.js" />
+    <Content Include="UIPackages\jquery\src\callbacks.js" />
+    <Content Include="UIPackages\jquery\src\core.js" />
+    <Content Include="UIPackages\jquery\src\core\access.js" />
+    <Content Include="UIPackages\jquery\src\core\camelCase.js" />
+    <Content Include="UIPackages\jquery\src\core\DOMEval.js" />
+    <Content Include="UIPackages\jquery\src\core\init.js" />
+    <Content Include="UIPackages\jquery\src\core\nodeName.js" />
+    <Content Include="UIPackages\jquery\src\core\parseHTML.js" />
+    <Content Include="UIPackages\jquery\src\core\ready-no-deferred.js" />
+    <Content Include="UIPackages\jquery\src\core\ready.js" />
+    <Content Include="UIPackages\jquery\src\core\readyException.js" />
+    <Content Include="UIPackages\jquery\src\core\stripAndCollapse.js" />
+    <Content Include="UIPackages\jquery\src\core\support.js" />
+    <Content Include="UIPackages\jquery\src\core\toType.js" />
+    <Content Include="UIPackages\jquery\src\core\var\rsingleTag.js" />
+    <Content Include="UIPackages\jquery\src\css.js" />
+    <Content Include="UIPackages\jquery\src\css\addGetHookIf.js" />
+    <Content Include="UIPackages\jquery\src\css\adjustCSS.js" />
+    <Content Include="UIPackages\jquery\src\css\curCSS.js" />
+    <Content Include="UIPackages\jquery\src\css\hiddenVisibleSelectors.js" />
+    <Content Include="UIPackages\jquery\src\css\showHide.js" />
+    <Content Include="UIPackages\jquery\src\css\support.js" />
+    <Content Include="UIPackages\jquery\src\css\var\cssExpand.js" />
+    <Content Include="UIPackages\jquery\src\css\var\getStyles.js" />
+    <Content Include="UIPackages\jquery\src\css\var\isHiddenWithinTree.js" />
+    <Content Include="UIPackages\jquery\src\css\var\rboxStyle.js" />
+    <Content Include="UIPackages\jquery\src\css\var\rnumnonpx.js" />
+    <Content Include="UIPackages\jquery\src\css\var\swap.js" />
+    <Content Include="UIPackages\jquery\src\data.js" />
+    <Content Include="UIPackages\jquery\src\data\Data.js" />
+    <Content Include="UIPackages\jquery\src\data\var\acceptData.js" />
+    <Content Include="UIPackages\jquery\src\data\var\dataPriv.js" />
+    <Content Include="UIPackages\jquery\src\data\var\dataUser.js" />
+    <Content Include="UIPackages\jquery\src\deferred.js" />
+    <Content Include="UIPackages\jquery\src\deferred\exceptionHook.js" />
+    <Content Include="UIPackages\jquery\src\deprecated.js" />
+    <Content Include="UIPackages\jquery\src\dimensions.js" />
+    <Content Include="UIPackages\jquery\src\effects.js" />
+    <Content Include="UIPackages\jquery\src\effects\animatedSelector.js" />
+    <Content Include="UIPackages\jquery\src\effects\Tween.js" />
+    <Content Include="UIPackages\jquery\src\event.js" />
+    <Content Include="UIPackages\jquery\src\event\ajax.js" />
+    <Content Include="UIPackages\jquery\src\event\alias.js" />
+    <Content Include="UIPackages\jquery\src\event\focusin.js" />
+    <Content Include="UIPackages\jquery\src\event\support.js" />
+    <Content Include="UIPackages\jquery\src\event\trigger.js" />
+    <Content Include="UIPackages\jquery\src\exports\amd.js" />
+    <Content Include="UIPackages\jquery\src\exports\global.js" />
+    <Content Include="UIPackages\jquery\src\jquery.js" />
+    <Content Include="UIPackages\jquery\src\manipulation.js" />
+    <Content Include="UIPackages\jquery\src\manipulation\buildFragment.js" />
+    <Content Include="UIPackages\jquery\src\manipulation\getAll.js" />
+    <Content Include="UIPackages\jquery\src\manipulation\setGlobalEval.js" />
+    <Content Include="UIPackages\jquery\src\manipulation\support.js" />
+    <Content Include="UIPackages\jquery\src\manipulation\var\rcheckableType.js" />
+    <Content Include="UIPackages\jquery\src\manipulation\var\rscriptType.js" />
+    <Content Include="UIPackages\jquery\src\manipulation\var\rtagName.js" />
+    <Content Include="UIPackages\jquery\src\manipulation\wrapMap.js" />
+    <Content Include="UIPackages\jquery\src\manipulation\_evalUrl.js" />
+    <Content Include="UIPackages\jquery\src\offset.js" />
+    <Content Include="UIPackages\jquery\src\queue.js" />
+    <Content Include="UIPackages\jquery\src\queue\delay.js" />
+    <Content Include="UIPackages\jquery\src\selector-native.js" />
+    <Content Include="UIPackages\jquery\src\selector-sizzle.js" />
+    <Content Include="UIPackages\jquery\src\selector.js" />
+    <Content Include="UIPackages\jquery\src\serialize.js" />
+    <Content Include="UIPackages\jquery\src\traversing.js" />
+    <Content Include="UIPackages\jquery\src\traversing\findFilter.js" />
+    <Content Include="UIPackages\jquery\src\traversing\var\dir.js" />
+    <Content Include="UIPackages\jquery\src\traversing\var\rneedsContext.js" />
+    <Content Include="UIPackages\jquery\src\traversing\var\siblings.js" />
+    <Content Include="UIPackages\jquery\src\var\arr.js" />
+    <Content Include="UIPackages\jquery\src\var\class2type.js" />
+    <Content Include="UIPackages\jquery\src\var\concat.js" />
+    <Content Include="UIPackages\jquery\src\var\document.js" />
+    <Content Include="UIPackages\jquery\src\var\documentElement.js" />
+    <Content Include="UIPackages\jquery\src\var\fnToString.js" />
+    <Content Include="UIPackages\jquery\src\var\getProto.js" />
+    <Content Include="UIPackages\jquery\src\var\hasOwn.js" />
+    <Content Include="UIPackages\jquery\src\var\indexOf.js" />
+    <Content Include="UIPackages\jquery\src\var\isFunction.js" />
+    <Content Include="UIPackages\jquery\src\var\isWindow.js" />
+    <Content Include="UIPackages\jquery\src\var\ObjectFunctionString.js" />
+    <Content Include="UIPackages\jquery\src\var\pnum.js" />
+    <Content Include="UIPackages\jquery\src\var\push.js" />
+    <Content Include="UIPackages\jquery\src\var\rcssNum.js" />
+    <Content Include="UIPackages\jquery\src\var\rnothtmlwhite.js" />
+    <Content Include="UIPackages\jquery\src\var\slice.js" />
+    <Content Include="UIPackages\jquery\src\var\support.js" />
+    <Content Include="UIPackages\jquery\src\var\toString.js" />
+    <Content Include="UIPackages\jquery\src\wrap.js" />
+    <Content Include="UIScripts\LoginPageStyles.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -175,6 +305,22 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <Content Include="UIPackages\angular\.bower.json" />
+    <Content Include="UIPackages\angular\angular.min.js.gzip" />
+    <Content Include="UIPackages\angular\angular.min.js.map" />
+    <Content Include="UIPackages\angular\bower.json" />
+    <Content Include="UIPackages\angular\LICENSE.md" />
+    <Content Include="UIPackages\angular\package.json" />
+    <Content Include="UIPackages\angular\README.md" />
+    <Content Include="UIPackages\jquery\.bower.json" />
+    <Content Include="UIPackages\jquery\bower.json" />
+    <Content Include="UIPackages\jquery\dist\jquery.min.map" />
+    <Content Include="UIPackages\jquery\dist\jquery.slim.min.map" />
+    <Content Include="UIPackages\jquery\external\sizzle\dist\sizzle.min.map" />
+    <Content Include="UIPackages\jquery\README.md" />
+    <Content Include="UIPackages\jquery\src\.eslintrc.json" />
+    <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\WorkShop1\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
